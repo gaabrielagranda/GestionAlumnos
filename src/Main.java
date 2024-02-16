@@ -10,7 +10,8 @@ public class Main {
             System.out.println("1. Agregar alumno");
             System.out.println("2. Mostrar alumnos");
             System.out.println("3. Eliminar alumno");
-            System.out.println("4. Salir");
+            System.out.println("4. Modificar alumno");
+            System.out.println("5. Salir");
             System.out.print("Ingrese la opción: ");
             int opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar el buffer de entrada
@@ -50,6 +51,55 @@ public class Main {
                     System.out.println("Alumno eliminado correctamente.");
                     break;
                 case 4:
+                    System.out.print("Ingrese el índice del alumno a modificar: ");
+                    int indiceModificar = scanner.nextInt();
+                    scanner.nextLine(); // Limpiar el buffer de entrada
+
+                    Alumno alumnoAModificar = gestorAlumnos.obtenerAlumno(indiceModificar - 1);
+                    if (alumnoAModificar != null) {
+                        System.out.println("Ingrese los nuevos datos del alumno:");
+                        System.out.print("Nuevo nombre: ");
+                        String nuevoNombre = scanner.nextLine();
+                        System.out.print("Nuevo apellido: ");
+                        String nuevoApellido = scanner.nextLine();
+                        System.out.print("Nuevo teléfono: ");
+                        String nuevoTelefono = scanner.nextLine();
+                        System.out.print("Nuevo correo electrónico: ");
+                        String nuevoCorreo = scanner.nextLine();
+                        System.out.print("Nueva nota 1: ");
+                        double nuevaNota1 = scanner.nextDouble();
+                        System.out.print("Nueva nota 2: ");
+                        double nuevaNota2 = scanner.nextDouble();
+                        System.out.print("Nueva nota 3: ");
+                        double nuevaNota3 = scanner.nextDouble();
+                        System.out.print("Nueva asistencia por días: ");
+                        double nuevaAsistencia = scanner.nextDouble();
+                        System.out.print("Nueva nota media de los finales: ");
+                        double nuevosFinales = scanner.nextDouble();
+
+                        // Actualizar el alumno
+                        alumnoAModificar.setnombre(nuevoNombre);
+                        alumnoAModificar.setapellido(nuevoApellido);
+                        alumnoAModificar.settelefono(nuevoTelefono);
+                        alumnoAModificar.setcorreoElectronico(nuevoCorreo);
+                        alumnoAModificar.setnota1(nuevaNota1);
+                        alumnoAModificar.setnota2(nuevaNota2);
+                        alumnoAModificar.setnota3(nuevaNota3);
+                        alumnoAModificar.setasistencia(nuevaAsistencia);
+                        alumnoAModificar.setfinales(nuevosFinales);
+
+                        // Recalcular la nota total y la calificación cualitativa
+                        alumnoAModificar.calcularNotaTotal();
+                        alumnoAModificar.calcularCalificacionCualitativa();
+
+                        gestorAlumnos.actualizarAlumno(indiceModificar - 1, alumnoAModificar);
+                        System.out.println("Alumno modificado correctamente.");
+                    } else {
+                        System.out.println("El alumno especificado no existe.");
+                    }
+                    break;
+
+                case 5:
                     System.out.println("Saliendo del programa...");
                     System.exit(0);
                     break;

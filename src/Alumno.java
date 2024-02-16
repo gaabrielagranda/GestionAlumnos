@@ -26,11 +26,11 @@ public class Alumno {
         calcularCalificacionCualitativa();
     }
 
-    private void calcularNotaTotal() {
+    void calcularNotaTotal() {
         this.notaTotal = (nota1 * 0.2) + (nota2 * 0.2) + (nota3 * 0.2) + (asistencia * 0.1) + (finales * 0.3);
     }
 
-    private void calcularCalificacionCualitativa() {
+    void calcularCalificacionCualitativa() {
         if (notaTotal >= 5 && notaTotal < 8) {
             this.calificacionCualitativa = "Aprobado";
         } else if (notaTotal >= 8 && notaTotal < 10) {
@@ -65,5 +65,32 @@ public class Alumno {
 
     public String getCalificacionCualitativa() {
         return calificacionCualitativa;
+    }
+
+    public void setapellido(String nuevoApellido) {
+    }
+
+    public void setnombre(String nuevoNombre) {
+    }
+
+    public void settelefono(String nuevoTelefono) {
+    }
+
+    public void setcorreoElectronico(String nuevoCorreo) {
+    }
+
+    public void setnota1(double nuevaNota1) {
+    }
+
+    public void setnota2(double nuevaNota2) {
+    }
+
+    public void setnota3(double nuevaNota3) {
+    }
+
+    public void setasistencia(double nuevaAsistencia) {
+    }
+
+    public void setfinales(double nuevosFinales) {
     }
 }
